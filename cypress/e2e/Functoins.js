@@ -64,6 +64,7 @@ function CheckIspolnenieContrakta() {
   cy.contains("Дата начала бг")
   cy.contains('Дата окончания бг')
 };
+
 function CheckVozvratAvanca() {
   cy.contains("Ссылка на закупку(или план график)")
   cy.contains('Предмет контракта')

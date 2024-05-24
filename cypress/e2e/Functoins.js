@@ -95,18 +95,19 @@ function CheckGarantiynieObjazatelstva() {
 };
 
 function CreateApplicaton() {
-  
-  cy.contains('Создать заявку и загр').click();
   cy.wait(1000)
+  cy.contains('Создать заявку и загру').click().click();
+  cy.wait(2000)
   cy.contains('Необходимые док').click();
-  
+  cy.wait(1000)
   cy.get('input[type="file"]').invoke('attr', 'style', 'display', 'block');
   cy.get('input[type="file"]').should('be.visible');
-  
+  cy.wait(1000)
   cy.fixture('example.jpg', 'base64').then(fileContent => {
     const fileName = 'example.jpg';   
     cy.get(':nth-child(1) > .UI_ITOModuleDocuments_iconWrapper__HvS-s > .DocRequestList_iconWrapper__Bp2qh > .ant-upload-wrapper > .ant-upload-select > .ant-upload > input').selectFile('cypress/fixtures/example.jpg')
     cy.get('input[type="file"]').invoke('attr', 'style', 'display', 'none');
+    cy.wait(2000)
     cy.reload();
     cy.contains("Сохранить и отправить в работу").click()
   });

@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.9.0"
+    "cypress": "^13.9.0",
+    "cypress-dotenv": "^2.0.0"
   },
   "dependencies": {
     "cypress-file-upload": "^5.0.8"

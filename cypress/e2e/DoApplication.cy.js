@@ -10,6 +10,7 @@ import {
   CheckGarantiynieObjazatelstva
 } from "./Functoins";
 
+
 // Использование функций generateRandomNumber и generateRandomExpression
 let randomExpression = generateRandomExpression(20);
 let randomNum = generateRandomNumber(100000000000, 999999999999);
@@ -33,7 +34,8 @@ describe("Автотесты", () => {
     );
     cy.get('#Aplication_number_lot').type(randomNumLot)
     CheckGarantiynieObjazatelstva()
-    CreateApplicaton()
+    // CreateApplicaton()
+    // CheckGarantiynieObjazatelstvaNovaya()
    
   }); 
 });

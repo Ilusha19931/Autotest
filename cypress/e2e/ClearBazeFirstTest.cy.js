@@ -1,6 +1,8 @@
+import url from './Url.cy.js';
+
 describe("Автотесты", () => {
   it("Регистрация позитив", () => {
-    cy.visit("https://testsimfront.tatbg.ru");
+    cy.visit(url);
     cy.get("#basic > .ant-btn-default > span").click();
     cy.get("#AgentPageEntityLegally_surname").type("Тестовый");
     cy.get("#AgentPageEntityLegally_name").type("Кен");
@@ -16,7 +18,7 @@ describe("Автотесты", () => {
     cy.contains("Письмо отправлено");
   });
   it("Позитивный вход Логин+ пароль +", () => {
-    cy.visit("https://testsimfront.tatbg.ru");
+    cy.visit(url);
     cy.get("#basic_email").type("mzokov_il@mail.ru");
     cy.get("#basic_password").type("12341234йЙ");
     cy.get(".ant-btn-primary > span").click();

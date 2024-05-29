@@ -1,3 +1,5 @@
+import url from './Url.cy.js';
+
 function generateRandomExpression(length) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/@';
@@ -28,7 +30,7 @@ const getRandomDate = (start = '10-01-2000', end = '01-01-2100') => {
   return new Date(randomTime).toISOString().split('T')[0];
 }
 function login() {
-  cy.visit('https://testsimfront.tatbg.ru')
+  cy.visit(url)
   cy.get('#basic_email').type('mzokov_il@mail.ru')
   cy.get('#basic_password').type('12341234йЙ')
   cy.get('.ant-btn-primary > span').click()
@@ -94,6 +96,20 @@ function CheckGarantiynieObjazatelstva() {
   cy.contains('Дата окончания бг')
 };
 
+function CheckGarantiynieObjazatelstvaNovaya() {
+  cy.contains("Ссылка на закупку(или план график)")
+  cy.contains('Предмет контракта')
+  cy.contains("ИНН Заказчика")
+  cy.contains('Наименование организации')
+  cy.contains("Начальная цена контракта")
+  cy.contains('Итоговая цена контракта')
+  cy.contains("Сумма аванса по контракту")
+  cy.contains("Сумма обеспечения")
+  cy.contains('Номер лота')
+  cy.contains("Дата начала бг")
+  cy.contains('Дата окончания бг')
+};
+
 function CreateApplicaton() {
   cy.wait(1000)
   cy.contains('Создать заявку и загру').click().click();
@@ -125,6 +141,7 @@ module.exports = {
   CheckIspolnenieContrakta,
   CheckVozvratAvanca,
   CreateApplicaton,
-  CheckGarantiynieObjazatelstva
+  CheckGarantiynieObjazatelstva,
+  CheckGarantiynieObjazatelstvaNovaya
 
 };

@@ -1,4 +1,4 @@
-import url from './Url.cy.js';
+import url, { mail, password } from './Url.cy.js';
 
 function generateRandomExpression(length) {
   let result = '';
@@ -31,8 +31,8 @@ const getRandomDate = (start = '10-01-2000', end = '01-01-2100') => {
 }
 function login() {
   cy.visit(url)
-  cy.get('#basic_email').type('mzokov_il@mail.ru')
-  cy.get('#basic_password').type('12341234йЙ')
+  cy.get('#basic_email').type(mail)
+  cy.get('#basic_password').type(password)
   cy.get('.ant-btn-primary > span').click()
   cy.contains("Заявки")
   cy.contains('Создать заявку')
@@ -116,8 +116,7 @@ function CreateApplicaton() {
   cy.wait(2000)
   cy.contains('Необходимые док').click();
   cy.wait(1000)
-  cy.get('input[type="file"]').invoke('attr', 'style', 'display', 'block');
-  cy.get('input[type="file"]').should('be.visible');
+  ShowSelectorFile()
   cy.wait(1000)
   cy.fixture('example.jpg', 'base64').then(fileContent => {
     const fileName = 'example.jpg';   
@@ -128,8 +127,6 @@ function CreateApplicaton() {
     cy.contains("Сохранить и отправить в работу").click()
   });
 }
-  
-
 
 module.exports = getRandomDate;
 module.exports = {
@@ -142,6 +139,7 @@ module.exports = {
   CheckVozvratAvanca,
   CreateApplicaton,
   CheckGarantiynieObjazatelstva,
-  CheckGarantiynieObjazatelstvaNovaya
+  CheckGarantiynieObjazatelstvaNovaya,
+  
 
 };

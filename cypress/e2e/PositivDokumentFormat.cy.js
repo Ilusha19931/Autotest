@@ -61,7 +61,7 @@ function ShowSelectorFile() {
       
     });
 
-    it.only("Негати загрузка документов не валидных форматов", () => {
+    it("Негати загрузка документов не валидных форматов", () => {
         login();
         cy.get("a > .ant-btn").click();
         cy.get("#Aplication_inn").type("0259017788");

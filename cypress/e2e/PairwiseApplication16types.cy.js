@@ -256,7 +256,7 @@ import {
         CheckVozvratAvanca()
         CreateApplicaton()
       });
-      it.only("Возврат аванса, подгрузка, 185-фз", () => {
+      it("Возврат аванса, подгрузка, 185-фз", () => {
         login();
         cy.get("a > .ant-btn").click();
         cy.get("#Aplication_inn").type("0259017788");

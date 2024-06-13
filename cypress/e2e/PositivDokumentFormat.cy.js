@@ -57,7 +57,7 @@ function ShowSelectorFile() {
         getRandomDate("2025-01-01", "2999-12-31")
       );
       CheckGarantiynieObjazatelstva()
-      DocumentsDifferentTypes()
+     
       
     });
 

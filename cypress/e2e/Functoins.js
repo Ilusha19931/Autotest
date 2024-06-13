@@ -29,6 +29,12 @@ const getRandomDate = (start = '10-01-2000', end = '01-01-2100') => {
   const randomTime = Math.random() * timeDiff + startDate.getTime();
   return new Date(randomTime).toISOString().split('T')[0];
 }
+
+function ShowSelectorFile() {
+  cy.get('input[type="file"]').invoke('attr', 'style', 'display', 'block')
+  cy.get('input[type="file"]').should('be.visible')
+}
+
 function login() {
   cy.visit(url)
   cy.get('#basic_email').type(mail)
@@ -140,6 +146,6 @@ module.exports = {
   CreateApplicaton,
   CheckGarantiynieObjazatelstva,
   CheckGarantiynieObjazatelstvaNovaya,
-  
+  ShowSelectorFile
 
 };

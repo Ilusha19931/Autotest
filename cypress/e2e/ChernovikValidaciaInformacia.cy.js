@@ -10,7 +10,8 @@ import {
     CheckVozvratAvanca,
     CreateApplicaton,
     CheckGarantiynieObjazatelstva,
-    DocumentsDifferentTypes
+    DocumentsDifferentTypes,
+    handleException
   } from "./Functoins";
   
   

@@ -10,10 +10,11 @@ import {
     CheckVozvratAvanca,
     CreateApplicaton,
     CheckGarantiynieObjazatelstva,
-    DocumentsDifferentTypes
+    DocumentsDifferentTypes,
+    handleException
   } from "./Functoins";
   
-  
+
   // Использование функций generateRandomNumber и generateRandomExpression
   let randomExpression = generateRandomExpression(20);
   let randomNum = generateRandomNumber(100000000000, 999999999999);
@@ -84,7 +85,18 @@ import {
 
       });
 
-      it.only("Позитив поиск по типу Банку", () => {
+      it("Позитив поиск по типу Банку", () => {
+        login();
+        cy.get('#filter_applications_organization_inn').click().type('0259017788')
+
+        cy.wait(1000)
+        cy.get(':nth-child(3) > .ant-btn').click()
+        cy.wait(1000)
+
+
+      });
+
+      it.only("Позитив поиск по типу Номеру заявки", () => {
         login();
         cy.get('#filter_applications_organization_inn').click().type('0259017788')
 

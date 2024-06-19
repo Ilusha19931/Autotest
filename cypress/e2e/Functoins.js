@@ -1,5 +1,6 @@
 import url, { mail, password } from './Url.cy.js';
 
+
 function generateRandomExpression(length) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/@';
@@ -134,7 +135,23 @@ function CreateApplicaton() {
   });
 }
 
-module.exports = getRandomDate;
+function handleException(err, runnable) {
+  
+  if (err.message.includes('Ошибка при инициализации модуля для работы с Cades plugin')) {
+ 
+      return false;
+  }
+
+  return true;
+}
+
+Cypress.on('uncaught:exception', handleException);
+
+module.exports = {
+  getRandomDate,
+  handleException
+};
+
 module.exports = {
   generateRandomNumber,
   generateRandomExpression,

@@ -1,5 +1,19 @@
 import url from "./Url.cy";
 
+import {
+  generateRandomNumber,
+  generateRandomExpression,
+  getRandomDate,
+  login,
+  CheckUchastie,
+  CheckIspolnenieContrakta,
+  CheckVozvratAvanca,
+  CreateApplicaton,
+  CheckGarantiynieObjazatelstva,
+  DocumentsDifferentTypes,
+  handleException
+} from "./Functoins";
+
 describe("Автотесты", () => {
   it("Позитивный вход Логин+ пароль +", () => {
     cy.visit(url);

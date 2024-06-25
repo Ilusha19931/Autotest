@@ -1,5 +1,4 @@
-import url, { mail, password } from './Url.cy.js';
-
+import url, { mailAgent, passwordAgent, mailKO, passwordKO } from './Url.cy.js';
 
 function generateRandomExpression(length) {
   let result = '';
@@ -38,11 +37,18 @@ function ShowSelectorFile() {
 
 function login() {
   cy.visit(url)
-  cy.get('#basic_email').type(mail)
-  cy.get('#basic_password').type(password)
+  cy.get('#basic_email').type(mailAgent)
+  cy.get('#basic_password').type(passwordAgent)
   cy.get('.ant-btn-primary > span').click()
   cy.contains("Заявки")
   cy.contains('Создать заявку')
+};
+
+function loginKO() {
+  cy.visit(url)
+  cy.get('#basic_email').type(mailKO)
+  cy.get('#basic_password').type(passwordKO)
+  cy.get('.ant-btn-primary').click()
 };
 
 function CheckUchastie() {
@@ -163,6 +169,7 @@ module.exports = {
   CreateApplicaton,
   CheckGarantiynieObjazatelstva,
   CheckGarantiynieObjazatelstvaNovaya,
-  ShowSelectorFile
+  ShowSelectorFile,
+  loginKO
 
 };

@@ -32,7 +32,7 @@ module.exports = defineConfig({
         });
       } else {
         return {
-          browsers: config?.browsers.concat([
+          browsers: config.browsers.concat([
             {
               name: "yandex",
               channel: "stable",

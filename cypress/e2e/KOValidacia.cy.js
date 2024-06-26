@@ -25,7 +25,7 @@ import { clear } from 'console';
 
   describe("Автотесты", () => {
 
-    it("Переходы Кредитный отдела", () => {
+    it("Валидация КО новая заявка", () => {
       loginKO();
       cy.on('uncaught:exception', (err, runnable) => {
         // Проверяем, является ли данная ошибка Assertion Error и если да, игнорируем ее
@@ -45,7 +45,7 @@ import { clear } from 'console';
         }
     });
     cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
-    cy.get('#form_FooterChat_chatInputText').click().invoke('val', 'йцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщ');
+    cy.get('#form_FooterChat_chatInputText').click().type('йцукенгшщйцукенгшщйцукенгшщйцукенгшщйцукенгшщйцукенгшщ');
     cy.get('[class*="FooterChat_footerChatButtonMessage"] > .ant-btn').click();
     cy.get('[class*="MessageCardChat_wrapperMessageCardChatMe"]').should('contain', 'йцукенгшщйцукенгшщ')
 
@@ -93,12 +93,51 @@ import { clear } from 'console';
       cy.get('#search_search').type("2@@")
       cy.contains('Ничего не найдено')
       cy.get('#search_search').clear()
-      cy.get('#search_search').type("qwer")
+      cy.get('#search_search').first().type("qwer")
       cy.contains('Ничего не найдено')
 
-      cy.get('[class*="UI_ITOModuleTitleCard_cardWrapper"]').contains('Банки').click()
       cy.get('#search_search').clear()
-      cy.get('[class*="ApplicationBankInfo_bankInfoWrapper"]').click()
+      cy.get('[class*="anticon anticon-down"]').first().click()
+      cy.get('.ant-select-selection-item').click()
+      cy.get('.ant-select-dropdown').contains('Предложение').click()
+      cy.contains("Сохранить изменения").click()
+      cy.get('[class*="anticon anticon-down"]').last().click()
+      
+      cy.get('#form_ApplicationBank11_base_commission').type("qwer")
+      cy.get('#form_ApplicationBank11_overstatement').click()
+      cy.get('#form_ApplicationBank11_base_commission').should('have.value', '0').type("15")
+      cy.get('#form_ApplicationBank11_overstatement').click()
+      cy.get('#form_ApplicationBank11_base_commission').should('have.value', '15').clear().type("-15")
+      cy.get('#form_ApplicationBank11_overstatement').click()
+      cy.get('#form_ApplicationBank11_base_commission').should('have.value', '15').clear().type("15йцук")
+      cy.get('#form_ApplicationBank11_overstatement').click()
+      cy.get('#form_ApplicationBank11_base_commission').should('have.value', '15').clear().type("15@#$")
+      cy.get('#form_ApplicationBank11_overstatement').click()
+      cy.get('#form_ApplicationBank11_base_commission').should('have.value', '15').clear()
+  
+      cy.get('#form_ApplicationBank11_overstatement').type("qwer")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_overstatement').should('have.value', '0').type("15")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_overstatement').should('have.value', '15').clear().type("-15")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_overstatement').should('have.value', '15').clear().type("15йцук")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_overstatement').should('have.value', '15').clear().type("15@#$")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_overstatement').should('have.value', '15').clear()
+  
+      cy.get('#form_ApplicationBank11_platform_app_id').type("qwer")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_platform_app_id').should('have.value', '0qwer').clear().type("15")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_platform_app_id').should('have.value', '15').clear().type("-15")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_platform_app_id').should('have.value', '-15').clear().type("15йцук")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_platform_app_id').should('have.value', '15йцук').clear().type("15@#$")
+      cy.get('#form_ApplicationBank11_base_commission').click()
+      cy.get('#form_ApplicationBank11_platform_app_id').should('have.value', '15@#$').clear()
 
         });    
       })

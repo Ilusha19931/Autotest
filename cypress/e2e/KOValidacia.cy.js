@@ -14,6 +14,7 @@ import {
     DocumentsDifferentTypes,
     handleException
   } from "./Functoins";
+import { clear } from 'console';
   
 
   // Использование функций generateRandomNumber и generateRandomExpression
@@ -45,7 +46,60 @@ import {
     });
     cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
     cy.get('#form_FooterChat_chatInputText').click().invoke('val', 'йцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщзхйцукенгшщ');
-    cy.get('[class*="FooterChat_footerChatButtonMessage__Q8ZxD"] > .ant-btn').click();
+    cy.get('[class*="FooterChat_footerChatButtonMessage"] > .ant-btn').click();
+    cy.get('[class*="MessageCardChat_wrapperMessageCardChatMe"]').should('contain', 'йцукенгшщйцукенгшщ')
 
+    cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
+    cy.get('#form_FooterChat_chatInputText').click().type('йб');
+    cy.get('[class*="FooterChat_footerChatButtonMessage"] > .ant-btn').click();
+    cy.get('[class*="MessageCardChat_wrapperMessageCardChatMe"]').should('contain', 'йб')
+
+    cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
+    cy.get('#form_FooterChat_chatInputText').click()
+    cy.url().then(originalUrl => {
+      cy.get('[class*="FooterChat_footerChatButtonMessage"] >.ant-btn').click();
+      cy.url().should('eq', originalUrl);
+
+      cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
+      cy.get('#form_FooterChat_chatInputText').click().type('@$%}}');
+      cy.get('[class*="FooterChat_footerChatButtonMessage"] > .ant-btn').click();
+      cy.get('[class*="MessageCardChat_wrapperMessageCardChatMe"]').should('contain', '@$%}}')
+
+      cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
+      cy.get('#form_FooterChat_chatInputText').click().type('שלום');
+      cy.get('[class*="FooterChat_footerChatButtonMessage"] > .ant-btn').click();
+      cy.get('[class*="MessageCardChat_wrapperMessageCardChatMe"]').should('contain', 'שלום')
+
+      cy.get('[class*="ApplicationCard_moduleTitleCardWrapper"]').contains('Чат').click()
+      cy.get('#form_FooterChat_chatInputText').click().type('qwerqwer');
+      cy.get('[class*="FooterChat_footerChatButtonMessage"] > .ant-btn').click();
+      cy.get('[class*="MessageCardChat_wrapperMessageCardChatMe"]').should('contain', 'qwerqwer')
+
+      cy.contains('Банки').click()
+      cy.get('#search_search').type("Зе")
+      cy.contains('Зенит')
+      cy.get('#search_search').clear()
+      cy.get('#search_search').type("Банк")
+      cy.contains('Ингосстрах')
+      cy.get('#search_search').clear()
+      cy.contains('Банки').click()
+      cy.get('#search_search').type("Зе")
+      cy.contains('Зенит')
+      cy.get('#search_search').clear()
+      cy.get('#search_search').type("АК")
+      cy.contains('АК БАРС')
+
+      cy.get('#search_search').clear()
+      cy.get('#search_search').type("2@@")
+      cy.contains('Ничего не найдено')
+      cy.get('#search_search').clear()
+      cy.get('#search_search').type("qwer")
+      cy.contains('Ничего не найдено')
+
+      cy.get('[class*="UI_ITOModuleTitleCard_cardWrapper"]').contains('Банки').click()
+      cy.get('#search_search').clear()
+      cy.get('[class*="ApplicationBankInfo_bankInfoWrapper"]').click()
+
+        });    
       })
     });

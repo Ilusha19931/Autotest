@@ -23,7 +23,9 @@ import { clear } from 'console';
   let randomNumSum = generateRandomNumber(10000000, 99999999);
   let randomNumLot = generateRandomNumber(10, 99);
   
-  const SelectorDocumentButtom1 = ":nth-child(1) > .UI_ITOModuleDocuments_iconWrapper__HvS-s > .DocRequestList_iconWrapper__Bp2qh > .ant-upload-wrapper > .ant-upload-select > .ant-upload > input" 
+  const SelectorDocumentButton1 = () => {
+    return cy.get('[data-cy="button-upload-document-icons"]').eq(0).siblings('input[type="file"]')
+  }
 const SelectorDocumentButtom2 = ":nth-child(2) > .UI_ITOModuleDocuments_iconWrapper__HvS-s > .DocRequestList_iconWrapper__Bp2qh > .ant-upload-wrapper > .ant-upload-select > .ant-upload > input" 
 const SelectorDocumentButtom3 = ":nth-child(3) > .UI_ITOModuleDocuments_iconWrapper__HvS-s > .DocRequestList_iconWrapper__Bp2qh > .ant-upload-wrapper > .ant-upload-select > .ant-upload > input" 
 const SelectorDocumentButtom4 = ":nth-child(4) > .UI_ITOModuleDocuments_iconWrapper__HvS-s > .DocRequestList_iconWrapper__Bp2qh > .ant-upload-wrapper > .ant-upload-select > .ant-upload > input" 
@@ -73,7 +75,7 @@ describe("Автотесты", () => {
         cy.wait(1000)
         cy.fixture('example.epub', 'base64').then(fileContent => {
           let fileNameJPG = 'example.epub';  
-          cy.get(SelectorDocumentButtom1).selectFile('cypress/fixtures/example.epub') 
+          SelectorDocumentButton1().selectFile('cypress/fixtures/example.epub')
         
           cy.contains("Файл в поле Документ должен быть одного из следующих типов")
           cy.wait(2300)
@@ -81,7 +83,7 @@ describe("Автотесты", () => {
         ShowSelectorFile()
         cy.fixture('sample-3s.mp3', 'base64').then(fileContent => {
           let fileNamePNG = 'sample-3s.mp3';   
-          cy.get(SelectorDocumentButtom1).selectFile('cypress/fixtures/sample-3s.mp3') 
+          SelectorDocumentButton1().selectFile('cypress/fixtures/sample-3s.mp3') 
         
           cy.contains("Файл в поле Документ должен быть одного из следующих типов")
           cy.wait(2300)
@@ -89,7 +91,7 @@ describe("Автотесты", () => {
         ShowSelectorFile()
         cy.fixture('sample-5s.mp4', 'base64').then(fileContent => {
           let fileNamePNG = 'sample-5s.mp4';   
-          cy.get(SelectorDocumentButtom1).selectFile('cypress/fixtures/sample-5s.mp4') 
+          SelectorDocumentButton1().selectFile('cypress/fixtures/sample-5s.mp4') 
         
           cy.contains("Файл в поле Документ должен быть одного из следующих типов")
           cy.wait(2300)
@@ -98,7 +100,7 @@ describe("Автотесты", () => {
         ShowSelectorFile()
         cy.fixture('sample-animated-400x300.gif', 'base64').then(fileContent => {
           let fileNamePNG = 'sample-animated-400x300.gif';   
-          cy.get(SelectorDocumentButtom1).selectFile('cypress/fixtures/sample-animated-400x300.gif') 
+          SelectorDocumentButton1().selectFile('cypress/fixtures/sample-animated-400x300.gif') 
         
           cy.contains("Файл в поле Документ должен быть одного из следующих типов")
           cy.wait(2300)
@@ -107,7 +109,7 @@ describe("Автотесты", () => {
         ShowSelectorFile()
         cy.fixture('sample-river-400x300.svg', 'base64').then(fileContent => {
           let fileNamePNG = 'sample-river-400x300.svg';   
-          cy.get(SelectorDocumentButtom1).selectFile('cypress/fixtures/sample-river-400x300.svg') 
+          SelectorDocumentButton1().selectFile('cypress/fixtures/sample-river-400x300.svg') 
         
           cy.contains("Файл в поле Документ должен быть одного из следующих типов")
           cy.wait(2300)

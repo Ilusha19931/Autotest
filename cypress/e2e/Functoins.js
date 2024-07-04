@@ -37,19 +37,21 @@ function ShowSelectorFile() {
 
 function login() {
   cy.visit(url)
-  cy.get('#basic_email').type(mailAgent)
-  cy.get('#basic_password').type(passwordAgent)
-  cy.get('.ant-btn-primary > span').click()
+  cy.get('[data-cy="button-input-auth-email"]').type(mailAgent)
+  cy.get('[data-cy="button-input-auth-password"]').type(passwordAgent)
+  cy.get('[data-cy="button-input-auth-enter"]').click()
   cy.contains("Заявки")
   cy.contains('Создать заявку')
 };
 
 function loginKO() {
   cy.visit(url)
-  cy.get('#basic_email').type(mailKO)
-  cy.get('#basic_password').type(passwordKO)
-  cy.get('.ant-btn-primary').click()
-};
+  cy.get('[data-cy="button-input-auth-email"]').type(mailKO)
+  cy.get('[data-cy="button-input-auth-password"]').type(passwordKO)
+  cy.get('[data-cy="button-input-auth-enter"]').click()
+  cy.document().should('exist') // Проверяем наличие документа
+  
+      };
 
 function CheckUchastie() {
   cy.contains("Ссылка на закупку(или план график)")
@@ -133,7 +135,7 @@ function CreateApplicaton() {
   cy.wait(1000)
   cy.fixture('example.jpg', 'base64').then(fileContent => {
     const fileName = 'example.jpg';   
-    cy.get(':nth-child(1) > .UI_ITOModuleDocuments_iconWrapper__HvS-s > .DocRequestList_iconWrapper__Bp2qh > .ant-upload-wrapper > .ant-upload-select > .ant-upload > input').selectFile('cypress/fixtures/example.jpg')
+    cy.get('[data-cy="button-upload-document-icons"]').eq(0).siblings('input[type="file"]').selectFile('cypress/fixtures/example.jpg')
     cy.get('input[type="file"]').invoke('attr', 'style', 'display', 'none');
     cy.wait(2000)
     cy.reload();

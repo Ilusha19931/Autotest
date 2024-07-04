@@ -27,6 +27,7 @@ describe("Автотесты", () => {
 
   it("Гарантийные обязательства, без подгрузки, 185-фз", () => {
     loginKO();
+    cy.log('Начало выполнения теста')
     cy.on('uncaught:exception', (err, runnable) => {
       // Проверяем, является ли данная ошибка Assertion Error и если да, игнорируем ее
       if (err.message.includes('Expected to find content:')) {
@@ -46,12 +47,13 @@ describe("Автотесты", () => {
   });
     cy.contains('Банки').click()
     cy.get('#search_search').clear()
-    cy.get('[class*="anticon anticon-down"]').first().click()
+    cy.get('[class*="anticon anticon-down"]').eq(1).click()
     cy.get('.ant-select-selection-item').click()
     cy.get('.ant-select-dropdown').contains('Предложение').click()
     cy.contains("Сохранить изменения").click()
-    cy.get('[class*="anticon anticon-down"]').last().click()
-    cy.get('#form_ApplicationBank11_base_commission').type("qwer")
+    cy.get('[class="ApplicationBankInfo_bankInfoWrapper]').contains('Предложение')
+    cy.get('[class*="anticon anticon-down"]').click()
+    cy.get('[id="base_commission"]').type("qwer")
     cy.get('#form_ApplicationBank11_overstatement').click()
     cy.get('#form_ApplicationBank11_base_commission').should('have.value', '0').type("15")
     cy.get('#form_ApplicationBank11_overstatement').click()
